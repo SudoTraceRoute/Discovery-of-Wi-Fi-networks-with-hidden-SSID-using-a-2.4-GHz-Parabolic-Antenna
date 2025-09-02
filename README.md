@@ -88,6 +88,7 @@ Hidden networks will appear with ESSID set to <hidden> or <length:…>.
 ---
 
 📊 **Results**
+
 A radar-style visualization was created from the captured .csv file.
     • Blue markers: Visible SSIDs
     • Red markers: Hidden SSIDs
@@ -97,12 +98,14 @@ This representation makes it clear that hidden SSIDs can be found just as easily
 
 
 🔐 **Wi-Fi Security Notes**
+
 Many people assume that hiding a network name adds protection. In practice:
     • Hidden SSIDs are still broadcast in management frames.
     • Client devices connecting to hidden SSIDs will leak the SSID in probe requests.
     • Attackers with basic tools can easily discover these networks.
     
 ✅ **Stronger Wi-Fi Security Recommendations:**
+
     • Always use WPA2 or WPA3 with a strong passphrase (12+ random characters).
     • Disable outdated encryption (WEP, WPA1).
     • Regularly update router firmware to patch vulnerabilities.
