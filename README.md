@@ -90,19 +90,28 @@ Hidden networks will appear with ESSID set to <hidden> or <length:…>.
 📊 **Results**
 
 A radar-style visualization was created from the captured .csv file.
+
     • Blue markers: Visible SSIDs
+    
     • Red markers: Hidden SSIDs
+    
     • Angle: Antenna pointing direction (0°–180°)
+    
     • Radius: Signal strength (closer to center = stronger)
+    
 This representation makes it clear that hidden SSIDs can be found just as easily as visible ones, provided the antenna is directed toward the source.
 
 
 🔐 **Wi-Fi Security Notes**
 
 Many people assume that hiding a network name adds protection. In practice:
+
     • Hidden SSIDs are still broadcast in management frames.
+    
     • Client devices connecting to hidden SSIDs will leak the SSID in probe requests.
+    
     • Attackers with basic tools can easily discover these networks.
+
     
 ✅ **Stronger Wi-Fi Security Recommendations:**
 
