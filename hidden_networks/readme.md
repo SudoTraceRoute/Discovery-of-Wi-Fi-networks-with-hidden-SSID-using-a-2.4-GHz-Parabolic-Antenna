@@ -1,4 +1,4 @@
-Here is visual display of the hidden Wi-Fi network signal sources based on previous signal scans done with my directional antenna in range 0 to 180 degrees.
+Here is the visual display of the hidden Wi-Fi network signal sources based on previous signal scans done with my directional antenna in range 0 to 180 degrees.
 
 The red points are the BSSID adresses that have hidden SSID, you can see their location on the radar map and find easy description in the map legend based on their position on the map.
 
