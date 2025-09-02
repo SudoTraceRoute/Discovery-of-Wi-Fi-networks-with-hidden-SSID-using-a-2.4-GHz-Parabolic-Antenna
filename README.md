@@ -55,7 +55,7 @@ This experiment highlights how antenna orientation strongly influences which net
 Step-by-step commands used in this project:
 
 **1. Identify Wi-Fi interfaces**
-```bash
+
 iwconfig
 
 
@@ -84,6 +84,32 @@ Hidden networks will appear with ESSID set to <hidden> or <length:…>.
 
 5. Save results to CSV
 - sudo airodump-ng --output-format csv -w wifi_scan wlan0mon
+
+---
+
+📊 Results
+A radar-style visualization was created from the captured .csv file.
+    • Blue markers: Visible SSIDs
+    • Red markers: Hidden SSIDs
+    • Angle: Antenna pointing direction (0°–180°)
+    • Radius: Signal strength (closer to center = stronger)
+This representation makes it clear that hidden SSIDs can be found just as easily as visible ones, provided the antenna is directed toward the source.
+
+
+🔐 Wi-Fi Security Notes
+Many people assume that hiding a network name adds protection. In practice:
+    • Hidden SSIDs are still broadcast in management frames.
+    • Client devices connecting to hidden SSIDs will leak the SSID in probe requests.
+    • Attackers with basic tools can easily discover these networks.
+    
+✅ Stronger Wi-Fi Security Recommendations:
+    • Always use WPA2 or WPA3 with a strong passphrase (12+ random characters).
+    • Disable outdated encryption (WEP, WPA1).
+    • Regularly update router firmware to patch vulnerabilities.
+    • Consider using guest networks or VLANs for IoT devices.
+    • Reduce unnecessary transmit power to limit signal leakage outside your property.
+Hiding an SSID is not harmful, but it provides no real security.
+
 
 
 
