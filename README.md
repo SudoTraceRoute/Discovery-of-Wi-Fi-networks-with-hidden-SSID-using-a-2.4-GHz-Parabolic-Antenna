@@ -59,14 +59,14 @@ Step-by-step commands used in this project:
 iwconfig
 
 
-2. Stop services that interfere with monitor mode:
+**2. Stop services that interfere with monitor mode:**
 
 - sudo systemctl stop NetworkManager
 
 - sudo systemctl stop wpa_supplicant
 
 
-3. Kill interfering processes and enable monitor mode:
+**3. Kill interfering processes and enable monitor mode:**
 
 - sudo airmon-ng check kill
 
@@ -75,19 +75,19 @@ iwconfig
 This creates a monitor-mode interface (e.g., wlan0mon).
 
 
-4. Scan for networks:
+**4. Scan for networks:**
 
 - sudo airodump-ng wlan0mon
 
 Hidden networks will appear with ESSID set to <hidden> or <length:…>.
 
 
-5. Save results to CSV
+**5. Save results to CSV**
 - sudo airodump-ng --output-format csv -w wifi_scan wlan0mon
 
 ---
 
-📊 Results
+📊 **Results**
 A radar-style visualization was created from the captured .csv file.
     • Blue markers: Visible SSIDs
     • Red markers: Hidden SSIDs
@@ -96,13 +96,13 @@ A radar-style visualization was created from the captured .csv file.
 This representation makes it clear that hidden SSIDs can be found just as easily as visible ones, provided the antenna is directed toward the source.
 
 
-🔐 Wi-Fi Security Notes
+🔐 **Wi-Fi Security Notes**
 Many people assume that hiding a network name adds protection. In practice:
     • Hidden SSIDs are still broadcast in management frames.
     • Client devices connecting to hidden SSIDs will leak the SSID in probe requests.
     • Attackers with basic tools can easily discover these networks.
     
-✅ Stronger Wi-Fi Security Recommendations:
+✅ **Stronger Wi-Fi Security Recommendations:**
     • Always use WPA2 or WPA3 with a strong passphrase (12+ random characters).
     • Disable outdated encryption (WEP, WPA1).
     • Regularly update router firmware to patch vulnerabilities.
