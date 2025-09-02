@@ -39,7 +39,7 @@ This setup was chosen because it reflects the type of hardware and tools that a 
 **🔧 Methodology**
 
 1. Assembled the **directional antenna** and connected it to the Wi-Fi adapter.  
-2. Performed a **0° → 180° directional sweep**, moving in 10° increments.  
+2. Performed a **0° → 180° directional sweep**, moving in 15° increments.  
 3. At each position:  
    - Captured nearby networks with `airodump-ng`.  
    - Logged visible and hidden SSIDs, BSSIDs, channels, encryption type, and RSSI values.  
@@ -57,3 +57,33 @@ Step-by-step commands used in this project:
 **1. Identify Wi-Fi interfaces**
 ```bash
 iwconfig
+
+
+2. Stop services that interfere with monitor mode:
+
+- sudo systemctl stop NetworkManager
+
+- sudo systemctl stop wpa_supplicant
+
+
+3. Kill interfering processes and enable monitor mode:
+
+- sudo airmon-ng check kill
+
+- sudo airmon-ng start wlan0
+
+This creates a monitor-mode interface (e.g., wlan0mon).
+
+
+4. Scan for networks:
+
+- sudo airodump-ng wlan0mon
+
+Hidden networks will appear with ESSID set to <hidden> or <length:…>.
+
+
+5. Save results to CSV
+- sudo airodump-ng --output-format csv -w wifi_scan wlan0mon
+
+
+
