@@ -36,6 +36,28 @@ This setup was chosen because it reflects the type of hardware and tools that a 
 
 ---
 
+**🔒 How Hidden SSIDs Work**
+
+A hidden SSID is a Wi-Fi network where the network name (SSID) is not broadcast in beacon frames by the access point (AP). This is sometimes mistakenly thought to improve security, but it only hides the SSID from casual scans — not from determined attackers or specialized tools.
+
+Normally, APs send out beacon frames announcing their SSID to all nearby devices. A hidden network omits the SSID in these beacons, so it appears as a blank or "hidden" network in Wi-Fi scanners. However, the network still functions normally — clients that know the SSID can still connect.
+
+**📡 Client Probing & Hidden SSIDs**
+
+When a device (client) connects to a hidden SSID, it typically actively probes for it. This means the client sends probe request frames with the SSID in clear text, asking "Is [hidden_SSID] here?"
+
+This behavior actually makes hidden SSIDs less secure:
+
+An attacker passively listening (e.g., with a directional antenna and packet sniffer like Wireshark or airodump-ng) can easily capture these probe requests.
+
+Once the SSID is seen in a probe request, the hidden network can be fully identified.
+
+These requests can also expose the movement and preferences of a device as it continuously probes for known networks.
+
+
+
+---
+
 **🔧 Methodology**
 
 1. Assembled the **directional antenna** and connected it to the Wi-Fi adapter.  
